@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import br.com.alura.modelo.Topico;
+import org.springframework.data.domain.Page;
 
 public class TopicoDto {
 
@@ -39,8 +40,8 @@ public class TopicoDto {
 
 
 
-	public static List<TopicoDto> converter(List<Topico> topicos) {
-		return  topicos.stream().map(TopicoDto::new).collect(Collectors.toList());
+	public static Page<TopicoDto> converter(Page<Topico> topicos) {
+		return topicos.map(TopicoDto::new);
 	}
 	
 
